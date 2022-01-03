@@ -1,24 +1,22 @@
 
-import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
 import SingleRoom from './pages/SingleRoom';
 import Error from './pages/Error';
-import Navbar from './components/Navbar';
-
+import Navbar from './components/Navbar'
 import  './App.css';
 function App() {
   return (
-    <>
-    <Navbar/>
+    <div>
     <Router>
-      
-      <nav>
+      <Navbar />
+      {/* <nav>
         <Link to="/">Home</Link>
         <link to="rooms">ROOMS</link>
         <link to="singleroom">SingleRooms</link>
-      </nav>
+      </nav> */}
     <Routes>
     
       <Route path="/" element={<Home />} />  
@@ -28,7 +26,7 @@ function App() {
     </Routes>
     
     </Router>
-    </>
+    </div>
   );
 }
 
