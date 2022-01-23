@@ -5,9 +5,9 @@ import App from './App';
 import {DataProvider} from './DataContext'
 
 ReactDOM.render(
-  <DataProvider>
-     <App />
-  </DataProvider>,
+ 
+     <App />,
+
   
   document.getElementById('root')
 );

@@ -6,6 +6,7 @@ import Services from '../components/Services'
 function Home() {
     return (
        <div>
+           
             <Hero>
                 <Banner title="LUXURIOUS ROOMS" subtitle="Deluxe Rooms starting at $29">
                     <Link to="/rooms" className='btn-primary'>ROOMS</Link>
