@@ -3,8 +3,8 @@ import {data} from './data';
 
 export const DataContext = createContext()
 
-export const DataProvider = ({props}) => {
-  const [items, setItems] = useState([])
+export const DataProvider = (props) => {
+  const [items, setItems] = useState(data)
   const [state, setState] = useState({
     rooms: [],
     sortedRooms: [],
@@ -21,30 +21,29 @@ export const DataProvider = ({props}) => {
     pets: false
   })
 
-  useEffect(() => {
-    setItems(data)
-  }, [])
+  // useEffect(() => {
+  //   setItems(data)
+  // }, [])
+
+  console.log(items);
   
   const formatData = (items) => {
     let tempItems = items.map((item) => {
       let id = item.sys.id;
       let images = item.fields.images.map((image) => image.fields.file.url)
-
       let room = {...item.fields, images, id};
-
       return room;
     })
-
     return tempItems
   }
-
+ console.log(formatData(items))
 
   useEffect(() => {
    let rooms = formatData(items)
    let featuredRooms = rooms.filter(room => room.featured === true)
    let maxPrice = Math.max(...rooms.map((item) => item.price))
    let maxSize = Math.max(...rooms.map(item => item.size))
-   setItems({
+   setState({
      rooms,
      featuredRooms,
      sortedRooms: rooms,
@@ -55,10 +54,12 @@ export const DataProvider = ({props}) => {
    })
   }, [items])
 
+  console.log(state.featuredRooms, state.rooms);
+
   const getRoom = (slug) => {
   let tempRooms = [...state.rooms];
-  const room = tempRooms.find((room) => room.slug === slug)
-  return room
+  const room = tempRooms.find((room) => room.slug === slug);
+  return room;
   }
 
   const filterRooms = () => {
@@ -112,7 +113,7 @@ export const DataProvider = ({props}) => {
     const target = e.target;
     const value = target.type === "checkedbox" ? target.checked : target.value;
     const name = e.target.name;
-    setItems(
+    setState(
       {
         [name]: value
       },

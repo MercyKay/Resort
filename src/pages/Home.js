@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 import { Link } from 'react-router-dom'
 import Services from '../components/Services'
+import RoomFilter from '../components/RoomFilter'
 function Home() {
     return (
        <div>
@@ -12,6 +13,7 @@ function Home() {
                 </Banner>
             </Hero>
             <Services/>
+            <RoomFilter />
         </div>
     )
 }

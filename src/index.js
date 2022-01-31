@@ -5,9 +5,10 @@ import App from './App';
 import {DataProvider} from './DataContext'
 
 ReactDOM.render(
-  <DataProvider>
+  // <DataProvider>
      <App />
-  </DataProvider>,
+  // </DataProvider>
+  ,
   
   document.getElementById('root')
 );
